@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fafafa;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    /* flex布局父项常见属性
+
+flex-direction:设置主轴的方向
+justify-content:设置主轴上的子元素排列方式
+flex-wrap:设置子元素是否换行
+align-content:设置侧轴上的子元素的排列方式(多行)
+align-items:设置侧轴上的子元素的排列方式(单行)
+flex-flow:复合属性，相当于同时设置了flex-direction和flex-wrap
+————————————————
+版权声明：本文为CSDN博主「颜正义」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_48491815/article/details/125666881 */
+align-items: center;
+/* align-items 属性定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式。 */
+justify-content: center;
+height: 100vh;
+overflow: hidden;
+}
+.magic {
+    background-color: #f9ca24;
+    color: #fff;
+    font-family: 'Poppins',sans-serif;
+    border: 0;
+    border-radius: 3px;
+    font-size: 16px;
+    padding: 12px 20px;
+    cursor: pointer;
+    /* cursor:pointer属性是在计算机中将光标呈现为指示链接的指针（一只手） */
+    position: fixed;
+    top: 20px;
+    letter-spacing: 1px;
+    /* letter-spacing属性是增加（值为正）或减少（值为负）字符间距； */
+    box-shadow: 0 3px rgba(249, 202, 36, 0.5);
+    z-index: 100;
+    /* z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。 */
+
+}
+.magic:focus {
+    outline: none;
+}
+.magic:active {
+    box-shadow: none;
+    transform: translateY(2px);
+}
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* space-around:平分剩余空间 */
+    height: 500px;
+    width: 500px;
+    position: relative;
+    transition: 0.4 ease;
+}
+.boxes.big {
+ width: 600px;
+ height: 600px;   
+}
+.boxes.big .box {
+    transform: rotateZ(360deg);
+    /* rotate(angle)定义2D旋转 ——原点为基点 */
+}
+.box {
+    background-image: url('https://media.giphy.com/media/EZqwsBSPlvSda/giphy.gif');
+    background-repeat: no-repeat;
+    background-size: 500px 500px;
+    position: relative;
+    height: 125px;
+    width: 125px;
+    transition: 0.4 ease;
+}
+.box::after {
+    content: '';
+    background-color: #f6e58d;
+    position: absolute;
+    top: 8px;
+    right: -15px;
+    height: 100%;
+    width: 15px;
+    transform: skewY(45deg);
+}
+.box::before {
+    content: '';
+    background-color: #f9ca24;
+    position: absolute;
+    bottom: -15px;
+    left: 8px;
+    height: 15px;
+    width: 100%;
+    transform: skewX(45deg);
+}
